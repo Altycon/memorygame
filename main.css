@@ -1,0 +1,135 @@
+/* === VARIABLES === */
+:root{
+    --bg-color1: hsl(0 0% 20%);
+    --f-color1: hsl(0 0% 80%);
+    --card-front-color: hsl(180 100% 50%);
+    --card-back-color: hsl(40 100% 50%);
+
+    --test-border: 1px solid white;
+}
+
+/* === RESETS === */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+/* === SITEWIDE === */
+
+html{
+    font-family: Helvetica, sans-serif;
+    color: var(--f-color1);
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--bg-color1);
+    text-align: center;
+}
+.main_header{
+    padding: 1rem;
+}
+/* === UTILITY CLASSES === */
+
+/* === TYPOGRAPHY === */
+.memory-game{
+    height: 100%;
+    border: var(--test-border);
+}
+.memory-game > header{
+    border: var(--test-border);
+    padding: 1rem;
+}
+
+/* GAME SETTINGS */
+
+.game-settings{
+    padding: 1rem;
+    border: var(--test-border);
+}
+
+/* GAME CONTROLS */
+.game-controls{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+
+    padding: 1rem;
+    border: var(--test-border);
+}
+.game-controls > *{
+    justify-self: center;
+}
+.game-controls .game_btn{
+    padding: 5px 10px;
+}
+.game-type_select{
+    padding: 5px;
+}
+
+/* GAME STATS */
+
+.game-stats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
+    padding: 1rem;
+    border: var(--test-border);
+}
+
+/* GAME DISPLAY */
+.game-display{
+    border: var(--test-border);
+}
+.card-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+/*  CARD  */
+.card{
+    width: 15vw;
+    height: 25vw;
+    border-radius: 10px;
+    perspective: 1000px;
+    overflow: hidden;
+}
+.card-inner{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+/* .card:hover .card-inner {
+    transform: rotateY(180deg);
+} */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card-front {
+    background: radial-gradient(black,hsl(180 100% 50%),black 50%);
+}
+.card-back {
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    color: black;
+    /* background-color: blue; */
+    object-fit: cover;
+    transform: rotateY(180deg); 
+}
+.card-back_img{
+   width: 100%;
+}
+.flipped {
+    transform: rotateY(180deg);
+  }
